@@ -1,0 +1,902 @@
+body a, body li
+{
+  text-decoration: none;
+  color: white;
+}
+
+#main_bloc
+{
+  width: 60%;
+  margin: auto;
+}
+.you h1
+{
+  color: white;
+  margin: auto;
+  font-size: 40px;
+  margin-bottom: 5%;
+  font-family: fantasy;
+}
+
+.you input
+{
+  width: 60%;
+  margin-bottom: 5px;
+  background: black;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 13px;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 4px;
+  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+  -webkit-transition: box-shadow .5s ease;
+  -moz-transition: box-shadow .5s ease;
+  -o-transition: box-shadow .5s ease;
+  -ms-transition: box-shadow .5s ease;
+  transition: box-shadow .5s ease;
+}
+
+.you input
+{
+  width: 60%;
+  margin-bottom: 5px;
+  background: black;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 13px;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 4px;
+  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+  -webkit-transition: box-shadow .5s ease;
+  -moz-transition: box-shadow .5s ease;
+  -o-transition: box-shadow .5s ease;
+  -ms-transition: box-shadow .5s ease;
+  transition: box-shadow .5s ease;
+}
+
+.you input[type = "radio"]
+{
+  width: auto;
+  font-size: 10px;
+  margin-right: 5px;
+  margin-left: 16px;
+  text-align: inherit;
+}
+
+.you textarea
+{
+  width: 62%;
+  background: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  font-size: 17px;
+  vertical-align: center;
+  font-family: monospace;
+}
+
+select
+{
+  margin-right: 3%;
+  margin-left: 1%;
+  background: black;
+  color: white;
+  width: 140px;
+  height: 28px;
+  font-family: fantasy;
+}
+#Notation
+{
+  margin-top: 5%;
+}
+
+.rating input
+{
+    background: none;
+    border: none;
+    padding: inherit;
+    margin: 0%;
+    display: inline;
+    width: 55px;
+}
+
+.rating {
+   direction: rtl;
+}
+
+.rating a ,.rating input
+{
+   color: #aaa;
+   text-decoration: none;
+   font-size: 3em;
+   transition: color .4s;
+}
+.rating a:hover, .rating a:focus, .rating a:hover ~ a, .rating a:focus ~ a,
+.rating input:hover, .rating input:focus, .rating input:hover ~ input, .rating input:focus ~ input 
+{
+   color: orange;
+   cursor: pointer;
+}
+
+.etoile_notation_detail
+{
+    width: 38px;
+    height: 23px;
+    margin-left: -3%;
+    vertical-align: -4px;
+  } 
+
+#Films_categorie
+{
+  display: flex;
+  justify-content:space-between;
+  margin-top: 12%;
+}
+
+#Films
+{
+  width: 75%;
+}
+
+#Genre_Films
+{
+  width: 22%;
+  background: #212828;
+  text-align: left;
+}
+
+#Genre_Films li
+{
+  list-style: none;
+  list-style-type: none;
+  margin: 1% 0% 0% -17%;
+  line-height: 42px;
+  display: list-item;
+  padding-left: 4px;
+  padding-right: 0;
+  border-top: 1px solid #999;
+  padding: 0;
+  font-size: 21px;
+  font-family: fantasy;
+  cursor: pointer;
+}
+
+#Genre_Films li:hover
+{
+  background: rgb(71, 88, 88);
+}
+
+.nom_commentaire
+{
+  font-size: 27px;
+    font-family: fantasy;
+    font-style: italic;
+    background: rgb(89, 127, 154);
+    padding: 1px 7px;
+    border-radius: 7px;
+    color: black;
+}
+
+.contenue_commentaire
+{
+  border-radius: 25px;
+  background: #3a5365;
+  margin-top: 1%;
+}
+
+#commentaires
+{
+  text-align: left;
+}
+
+#commentaires input[type = text]
+{
+      width: 80%;
+    padding: 8px 1px;
+    background: #3a5365;
+    color: white;
+    border-radius: 9px;
+    margin-top: 1%;
+    font-size: 20px;
+    font-family: monospa
+}
+
+#commentaires input[type = submit]
+{
+  background: #597f9a;
+    padding: 8px 25px;
+    font-style: italic;
+    border-radius: 10px;
+    font-size: 17px;
+    color: #f5c7a0;
+    font-family: monospace;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#commentaires input[type = submit]:hover
+{
+  background: #653a3a;;
+}
+#bande_annonce
+{
+  background: #653a3a;
+    padding: 7px 22px;
+    color: White;
+    font-size: 20px;
+    font-family: fantasy;
+    border-radius: 15px;
+    margin-top: 3%;
+}
+
+#text_connected a
+{
+  color: Black;
+}
+
+#text_produit
+{
+  background: #252929;
+  padding: 10px 10px;
+  height: 250px;
+}
+
+#titre_du_film
+{
+    margin-top: 10%;
+    background: rgb(55, 60, 60);
+    padding: 0px 0px;
+    color: rgb(238, 204, 175);
+    font-size: 55px;
+    margin: 10% auto 1% auto;
+    font-family: monospace;
+    width: 1000px;
+}
+
+.outil_produit
+{
+  text-align: left;
+  margin-left: 4%;
+}
+
+.outil_produit h3
+{
+  margin: 5% 0%;
+}
+.produit
+{
+  display: flex;
+  flex-direction:column;
+  color:white;
+}
+
+.image_produit img
+{
+    width: 250px;
+    height: 300px;
+}
+#text_connected li
+{
+  /*flex: 1;
+  display:inline-block;
+  position:relative;
+  border-radius:8px;*/
+}
+
+#text_connected ul li{
+  /*display:inherit;
+  border-radius:0;*/
+}
+
+#text_connected ul li:hover
+{
+  /*border-radius:0;*/
+}
+
+#text_connected ul
+{
+  position:absolute;
+ /* z-index: 1000;*/
+  max-height:0;
+  left: 0;
+  right: 0;
+  overflow:hidden;
+  -moz-transition: .8s all .3s;
+  -webkit-transition: .8s all .3s;
+  transition: .8s all .3s;
+}
+
+#text_connected
+{
+   font-size: 20px;
+    background: white;
+    border-radius: 23px;
+    text-align: center;
+    color: #905a5a;
+    text-transform: uppercase;
+    list-style: none;
+    height: 29px;
+    padding: 3px 13px;
+    margin: 1% 1% 0% 0%;
+}
+
+#text_connected li:hover ul
+{
+  max-height: 1.2em;
+}
+
+#text_deconection
+{
+  width: 125px;
+    height: 21px;
+    margin-left: 1113px;
+    margin-top: 1px;
+    list-style: none;
+    background: white;
+    border-radius: 20px;
+    z-index: 1000;
+    position: relative;
+    text-transform: initial;
+}
+.inscription_container
+{
+  width: 500px;
+  margin: 9% auto auto auto;
+}
+
+.inscription_container p
+{
+  color: rgba(255, 255, 255, 0.63);
+  font-size: 19px;
+}
+
+.inscription_container  input[type="submit"]
+{
+  background: grey;
+  width: 40%;
+  margin-top: 4%;
+}
+
+.inscription_container input[type="submit"]:hover
+{
+  background-color:  #653a3a;
+  transition: 0s display;
+}
+
+.inscription_container h1
+{
+  color: white;
+  margin: auto;
+  font-size: 40px;
+  margin-bottom: 5%;
+  font-family: fantasy;
+}
+
+.inscription_container input
+{
+  width: 60%;
+  margin-bottom: 5px;
+  background: black;
+  border: none;
+  outline: none;
+  padding: 10px;
+  font-size: 13px;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  border: 1px solid rgba(0,0,0,0.3);
+  border-radius: 4px;
+  box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+  -webkit-transition: box-shadow .5s ease;
+  -moz-transition: box-shadow .5s ease;
+  -o-transition: box-shadow .5s ease;
+  -ms-transition: box-shadow .5s ease;
+  transition: box-shadow .5s ease;
+}
+
+.inscription_container input[type = "radio"]
+{
+  width: auto;
+  font-size: 10px;
+  margin-right: 5px;
+  margin-left: 16px;
+  text-align: inherit;
+}
+
+.inscription_container textarea
+{
+  width: 62%;
+  background: rgba(255, 255, 255, 0.65);
+  text-align: center;
+  font-size: 17px;
+  vertical-align: center;
+  font-family: monospace;
+}
+
+#logo
+{
+  width: 75px;
+  height: 50px;
+}
+
+#CineToday
+{
+  display: flex;
+}
+
+#CineToday p
+{
+  font-size: 40px;
+  margin-top: 2%;
+  margin-bottom: -2%;
+  font-family: fantasy;
+  color: #eeccaf;
+}
+
+#CineToday a
+{
+  text-decoration: none;
+}
+
+#links {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-bottom: 2px;
+}
+
+footer
+{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  color: white;
+  margin: auto;
+  background: rgb(48, 56, 56);
+}
+
+#NEW img
+{
+  width: 215px;
+  height: 180px;
+  margin-left: 1%;
+}
+
+.block_News
+{
+  color: white;
+  display: flex;
+  background: rgba(98, 138, 138, 0.3);
+  padding-top: 1%;
+}
+
+.Article
+{
+  width: 550px;
+  margin-left: 1%;
+}
+
+.titre_article
+{
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 22px;
+  font-family: fantasy;
+}
+
+#seconde_party
+{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+
+.img_top1
+{
+  width:  370px;
+  height: 175px;
+}
+
+.block_top1
+{
+  background: rgba(50, 63, 63, 0.43);
+  color: white;
+}
+
+.block_top1 p
+{
+  width: 370px;
+}
+
+.trophe
+{
+  width: 30px;
+  height: 30px;
+}
+
+#top1_container
+{
+  margin: 2% 80px -3% 95px;
+}
+
+
+.block_top1 span
+{
+  vertical-align: 6px;
+  color: white;
+  font-family: fantasy;
+  font-size: 27px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+#titre_films_attendu
+{
+  text-align: center;
+  font-family: monospace;
+  font-size: 25px;
+  color: white;
+  padding-top: 3px;
+  padding: 1px;
+  background: rgb(101, 58, 58);
+  margin: 0% 0% 0% 0%;
+}
+
+.block_films_attendu
+{
+  display: flex;
+}
+
+.etoile_notation
+{
+  width: 30px;
+  height: 20px;
+  margin-left: -8% ;
+}
+
+#films_attendu  span, #top_series_de_la_semaine span
+{
+  margin: auto;
+  color: white;
+  font-family: fantasy;
+  font-size: 18px;
+}
+
+#top_series_de_la_semaine
+{
+    display: flex;
+    flex-direction: column;
+    width:378px;
+    background: rgba(40, 47, 47, 0.64);
+}
+
+#top_series_de_la_semaine img
+{
+    width: 190px;
+    height: 120px;
+}
+
+#films_attendu
+{
+  display: flex;
+  flex-direction: column;
+  width: 348px;
+  background: rgba(40, 47, 47, 0.64);
+}
+
+.img_film_attendu
+{
+  width: 190px;
+  height: 120px;
+}
+
+.titre_princ
+{
+  text-align: center;
+  border-top: 2px groove red;
+  font-family: monospace;
+  font-size: 25px;
+  color: white;
+  padding-top: 3px;
+  margin: 1% auto 1% auto;
+  width: 40%;
+}
+.span_produits
+{
+  display: block;
+  margin: auto;
+  color: white;
+  font-family: monospace;
+  text-align: center;
+  background: rgba(73, 165, 165, 0.07);
+  padding: 3px;
+  border-radius: 4px;
+}
+
+#best_seller img
+{
+  width: 190px;
+  height: 182px;
+}
+
+#icone_utilisateur
+{
+  width: 42px;
+  margin-top: 0.7%;
+  height: 42px;
+  margin-right: 1%;
+  border-radius: 19px;
+}
+
+#icone_utilisateur:hover
+{
+  border: 1px groove #653a3a;
+  width: 40px;
+  height: 40px;
+}
+
+#list_option
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  margin: 0.5% 0% auto 0%;
+}
+
+.element_option
+{
+    display: block;
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 60px;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.element_option:hover
+{
+  background-color: #111;
+}
+
+#active
+{
+  background-color: #653a3a;
+  color: white;
+}
+
+.image_princ
+{
+  width: 100%;
+  height: 400px;
+}
+
+#image_princ1
+{
+  width: 100%;i
+}
+
+body
+{   
+  background: transparent;
+  background-color: rgb(30,31,31);
+  background-size: 100% 100% ;
+  position: relative;
+  margin: 0% 0% 0% 0%;
+}
+
+
+.bloc_page
+{
+  margin: auto ;
+  margin-bottom: 1%;
+  margin-top: 75px;
+  width: 1140px;
+  position: relative;
+  min-height: 800px;
+  text-align: center;
+}
+
+header
+{
+  background: #282f2f;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  min-width: 1220px;
+}
+
+#head_bloc
+{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+margin: auto;
+  width: 1318px;
+}
+
+#best_seller
+{
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+{
+  width: 167px;
+  height: 204px;
+}
+
+#search_bar
+{
+  width:15%;
+  height:20%;
+  box-shadow: 1px 1px 18px rgb(12, 12, 12) inset;
+  border-radius: 2em;
+  overflow-x:auto;
+  min-width: 149px;
+  margin-top: 1%;
+}
+
+#search_bar input
+{
+  border:0;
+  margin:0;
+  width: 20%;
+  height:24px;
+}
+
+#search_bar input:focus
+{
+  outline: inherit;
+}
+
+#search_bar input[type=text]
+{
+  font:300 12px HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  background:none;
+  width: 85%;
+  color:#666;
+  padding-left: 3%;
+}
+
+#minifooter
+{
+  background: #653a3a;
+  color: white;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  font-family: "robotoboldcondensed",Arial,Helvetica,sans-serif;
+  font-size: 1.125rem;
+  padding-top: 0.4%;
+  padding-bottom: 0.2%;
+ 
+  position: absolute;
+ 
+}
+
+#minifooter img
+{
+  width: 32px;
+  margin-left: 0.5%;
+  margin-top: 0.5%;
+  border-radius: 27px;
+}
+
+#minifooter img:hover
+{
+  border: 2px groove grey;
+  width: 28px;
+}
+
+#minifooter span
+{
+  margin-bottom:  2%;
+  display: inline;
+  vertical-align: super;  
+}
+
+#minifooter ul
+{
+  display: inline;
+  margin-left: -2%;
+}
+
+#minifooter li,footer li
+{
+  display: inline-block;
+  margin-left: 0.625rem;
+}
+
+footer li
+{
+  text-align: center;
+  color: black;
+}
+ 
+ footer li a
+ {
+  text-decoration:none;
+  color: black;
+ }
+
+footer li a:hover
+{
+  color: #653a3a;
+}
+
+#copyrights p
+{
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  color: white ;
+  background-image:linear-gradient(grey, black);
+  margin: auto;
+}
+
+#reseaux_sociaux
+{
+  flex: 1;
+  border-right: 1px groove grey;
+  text-align: center;
+}
+
+#reseaux_sociaux p
+{
+  font-size: 2em;
+  margin: auto;
+  text-align: center;
+}
+#reseaux_sociaux img
+{
+  width: 30px;
+  height: 20px;
+}
+#reseaux_sociaux button
+{
+  flex: 1;
+  font-size: 3em;
+  border: 1px groove grey;
+  border-radius: 40%;
+  margin-top: 10px;
+  background-image: linear-gradient(to bottom, #729EBF 0%, #333A40 100%);
+}
+
+#links
+{
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  margin-top: 35px;
+}
+
+#usefullinks
+{
+  flex: 1;
+  margin-bottom: 9px;
+}
+#usefullinks ul
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+#usefullinks li
+{
+  flex: 1;
+  padding-right: 20px;
+}
+
