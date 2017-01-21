@@ -1,0 +1,201 @@
+body
+{
+  background: URL("background.jpg")no-repeat fixed;
+  background-size: 100% 100%;
+}
+
+h1,h2
+{
+  text-align: center;
+  font-size: 70px;
+  font-family: monospace;
+  color: #854f21;
+  font-style: italic;
+  margin-top: 0px;
+}
+
+h2
+{
+  margin-top: 40px;
+}
+
+#secret
+{
+  font-size: 40px;
+  cursor: pointer;
+  width: 15px;
+  margin-top: -15px;
+}
+
+#secret:focus
+{
+  outline: none;
+}
+
+ul
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  width: 60%;
+  margin: auto;
+}
+
+li
+{
+  float: left;
+}
+
+li {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 60px;
+  text-decoration: none;
+  font-family: monospace;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+li:hover
+{
+  background-color: #111;
+}
+
+#active
+{
+  background-color: #4CAF50;
+  color: white;
+}
+
+table
+{
+  background: grey;
+  width: 60%;
+  margin: 28px auto auto auto;
+}
+
+th
+{
+  background: white;
+  padding: 12px;
+  font-size: 34px;
+  font-family: monospace;
+  font-style: italic;
+  color: #69381a;
+}
+
+td, tr
+{
+  padding: 10px 0px 10px 20px
+}
+
+td
+{
+  background: #e7d0bd;
+  font-family: fantasy;
+  font-weight: bold;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+h4
+{
+  margin: auto auto 20px auto;
+  width: 86px;
+  text-align: center;
+  font-size: 30px;
+  font-family: monospace;
+  font-style: italic;
+  color: #1b0c0a;
+}
+
+#today
+{
+  margin: 5px auto auto auto;
+  width: 50%;
+  text-align: center;
+  font-size: 34px;
+  font-family: monospace;
+  color: #1dc724;
+}
+
+
+#Connexion
+{
+  display: flex;
+  flex-direction: column;
+  width: 15%;
+}
+
+#Connexion input
+{
+  font-size: 1.2em;
+  margin-bottom: 2px;
+  border-radius: 6px;
+  background: black;
+  text-align: center;
+  font-family: monospace;
+  font-style: italic;
+  box-shadow: 0 13px 18px 1px;
+  color: white;
+}
+
+#Connexion input:focus
+{
+  outline: none;
+}
+
+#Connexion button
+{
+  margin-top: 3px;
+  font-size: 1.2em;
+  font-family: monospace;
+  font-style: italic;
+}
+
+#Connexion button:hover
+{
+  background: grey;
+  font-size: 1.1em;
+}
+h5
+{
+  font-size: 1.2em;
+  margin: inherit;
+  font-family: monospace;
+  font-style: italic;
+}
+
+#zone_tableau
+{
+  display: -webkit-inline-box;;
+  width: 50%;
+}
+
+#valider
+{
+  margin: 40px auto auto auto;
+  display: block;
+  padding: 10px 30px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 18px 3px;
+  font-size: 30px;
+  font-family: monospace;
+  background: #854f21;
+  color: white;
+  cursor: pointer;
+}
+
+#valider:hover
+{
+  background: #333333;
+  padding: 9px 29px;
+}
+
+#valider:focus
+{
+  outline: none;
+}
