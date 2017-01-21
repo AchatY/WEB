@@ -1,0 +1,102 @@
+  _____ _            _____                             _____                  _
+ |_   _| |          |  __ \                           /  ___|                | |
+   | | | |__   ___  | |  \/ __ _ _ __ ___   ___  ___  \ `--.  __ _ _ __   ___| |_ _   _ _ __ ___
+   | | | '_ \ / _ \ | | __ / _` | '_ ` _ \ / _ \/ __|  `--. \/ _` | '_ \ / __| __| | | | '_ ` _ \
+   | | | | | |  __/ | |_\ \ (_| | | | | | |  __/\__ \ /\__/ / (_| | | | | (__| |_| |_| | | | | | |
+   \_/ |_| |_|\___|  \____/\__,_|_| |_| |_|\___||___/ \____/ \__,_|_| |_|\___|\__|\__,_|_| |_| |_|
+   								______               _  ___  ___     
+								| ___ \             | | |  \/  |     
+								| |_/ /___  __ _  __| | | .  . | ___ 
+								|    // _ \/ _` |/ _` | | |\/| |/ _ \
+								| |\ \  __/ (_| | (_| | | |  | |  __/
+								\_| \_\___|\__,_|\__,_| \_|  |_/\___|
+
+
+Le site web The Game Sanctum est un site de vente de jeux video uniquement il regroupe plusieurs categories de differentes consoles du monde du jeu video.
+
+//-------------------------------->>index.php<<--------------------------------\\
+Page d'acceuil du site elle presente :
+		-Certaines nouveautées en terme de jeux video.
+		-Certains des jeux les plus vendu du site.
+		-Un menu donnant accés a un grand nombre de categories sous forme de menus déroulant.
+		-Deux bouton Qui change en fonction de notre état de connexion:
+				*Connexion et Inscription pour un utilisateur non-connctés.
+				*Le login du client(test par example) et Deconnexion pour les utilisateurs connctés
+
+//-------------------------------->>categories.php<<--------------------------------\\
+Page d'affichage des categories de consoles jeu video:
+		-Play Station
+		-XBOX
+		-Nintendo
+		-Pc
+
+//-------------------------------->>produits.php<<--------------------------------\\
+Page d'affichage de tout les jeux disponible sur le site:
+		-Un affichage de 4 articles par ligne.
+		-Barre de filtres de tri et de recherche.
+		-Chaque article redirige vers une page detaillée de lui-même donnant la possibilitées d'ajout au panier.
+		-Chaque article contient un logo represantant sa categorie et permettant de faire une redirection vers la page de categories.
+
+//-------------------------------->>produit_detail.php<<--------------------------------\\
+Page detaillée d'un article:
+		-nom de l'article.
+		-Date de sortie.
+		-Console.
+		-Petite description et description complète.
+		-Image represantant le jeu.
+		-Bouton d'ajout au panier et de reservation en magasin(Non-effectif)
+
+//-------------------------------->>panier.php<<--------------------------------\\
+Page affichant le panier personnel a chaque utilisateur:
+		-Articles mis dans le panier.
+		-Prix.
+		-Champ de modification du nombre d'articles.
+		-Bouton de suppression d'un seul article a la fois.
+
+//-------------------------------->>admin.php<<--------------------------------\\
+Page reservé aux administrateurs du site accessible en cliquant sur le bouton où il y'a le login :
+		-Une barre de menu donnant accès aux differentes fonctionnalitées administrateur.
+		-Des informations personnelles sur l'utilisateur actuel.
+		-un bouton Edit permettant d'editer ses informations personnelles.
+
+//-------------------------------->>add_article.php<<--------------------------------\\
+Page d'ajout d'article permet d'ajouter de nouveau articles en specifiant touts les champs:
+		-Formulaire des details de l'article.
+
+//-------------------------------->>del_article.php<<--------------------------------\\
+Page de modification et de suppression d'articles:
+		-Offre la même interface que la page produits.php  en affichant touts les produits avec une barre de filtres et de recherche en specifiant que les liens des articles renvoient non a une page de produit_detail.php mais a un formulaire ou on a la possibilitée de modifier ou supprimer l'article.
+
+//-------------------------------->>manage_rights.php<<--------------------------------\\		
+Page de modifications des droits et des états des utilisateurs:
+		-Affichage de chaque utilisateur avec son login, son mail, son groupe, son etat.
+		-Deux boutons modifier et supprimer .
+
+//-------------------------------->>manage_users.php<<--------------------------------\\		
+Page affichant les utilisateurs etdifferentes informations liées a eux:
+		-Email, login, groupe, etat et un  bouton "Aller au panier" 
+		-Code couleur pour l'etat Vert(Connecté), Rouge(Deconnecté) et Gris(Bloqué).
+
+//-------------------------------->>functions.php<<--------------------------------\\		
+Regroupe un certain nombre de fonction utiles dans le plus grand nombre de pages:
+		-connect_to_db: Se connect a la database avec les informations necessaires .
+		-check_admin: Verifie si l'utilisateur courant est un administrateur d'apres la base de donnée. 
+
+
+il y'a un certain nombres de page qui ne sont pas cité mais elles representent des regroupement specifique de fonctions liées a une page seulement.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

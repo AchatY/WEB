@@ -1,0 +1,175 @@
+select * from Utilisateurs;
+
+select  ID, Libelle, Description, Prix_achat, Prix_vente , Nombres_produit, Date_creation, Date_modification
+FROM Produits;
+
+select	ID, Libelle, Description, Date_creation, Date_modification from	Categories;
+
+
+select nom, prenom, Date_de_naissance from Utilisateurs ORDER BY Date_de_naissance DESC;
+
+select nom, prenom, Date_de_naissance from Utilisateurs ORDER BY nom ASC;
+
+
+select Libelle FROM Produits limit 5;
+
+
+SELECT COUNT(*) FROM Utilisateurs;
+
+
+SELECT DISTINCT Libelle, prix_vente FROM Produits;
+
+
+SELECT Produits.*
+       FROM Produits
+       JOIN Categorie_Produit
+
+       where ID_Categorie IS NULL;
+SELECT Produits.*
+       FROM Produits
+       JOIN Categorie_Produit
+       ON ID_Produit = Produits.ID
+       where ID_Categorie IS NOT NULL ;
+
+
+
+SELECT * FROM Produits where (ID > 0 AND ID < 6);
+
+
+SELECT * FROM Categories where (ID = 1 OR ID = 3);
+
+
+SELECT * FROM Utilisateurs where (ID = 2 OR ID = 7);
+
+
+SELECT * FROM Produits where Prix_vente > 0.5 ;
+
+
+UPDATE Utilisateurs
+SET Nom = 'youmer', Prenom = 'achat', Date_de_naissance = '1996-11-23', Ville = 'Nice', Adresse = '19 avenue matoub lounes', Code_postale = '92320', Pays = 'france', Sexe = 'homme', Role = '2', Date_creation = '2016-11-02', Date_modification = '2016-11-08'
+WHERE ID = 5 ;
+
+
+SELECT Utilisateurs.*, Role.*
+       FROM Utilisateurs
+       JOIN Role
+       ON Utilisateurs.Role = Role.ID;
+
+
+SELECT Produits.Libelle, Categories.*
+       FROM Produits 
+       LEFT JOIN Categorie_Produit
+       ON Produits.ID = ID_Produit
+       LEFT JOIN Categories
+       ON Categories.ID = ID_Categorie;
+
+
+SELECT Produits.Description, Categories.*
+       FROM Produits 
+       JOIN Categorie_Produit
+       ON Produits.ID = ID_Produit
+       JOIN Categories
+       ON Categories.ID = ID_Categorie;
+
+
+DELETE FROM Utilisateurs WHERE ID = 5;
+
+DROP TABLE IF EXISTS backup_produit;
+CREATE TABLE IF NOT EXISTS backup_produit
+(
+	ID INT PRIMARY KEY,
+        Libelle VARCHAR(255),
+        Description BLOB(65535),
+        Prix_achat DOUBLE,
+        Prix_vente DOUBLE,
+        Nombres_produit SMALLINT,
+	Date_creation DATE,
+	Date_modification DATE
+);
+								
+DELIMITER |
+CREATE TRIGGER before_produits BEFORE DELETE
+ON Produits
+FOR EACH ROW
+BEGIN
+	INSERT INTO backup_produit VALUES(OLD.ID,
+	OLD.Libelle,
+	OLD.Description,
+	OLD.Prix_achat,
+	OLD.Prix_vente,
+	OLD.Nombres_produit,
+	OLD.Date_creation,
+	OLD.Date_modification);
+END |
+DELIMITER ;
+
+
+DELIMITER |
+CREATE TRIGGER after_categories
+BEFORE  UPDATE
+ON Categories
+FOR EACH ROW
+BEGIN
+       SET NEW.Date_modification = CURDATE();
+END|
+DELIMITER ;
+
+DELIMITER |
+CREATE TRIGGER prix1_produits
+BEFORE  INSERT
+ON Produits
+FOR EACH ROW
+BEGIN
+    IF NEW.Prix_vente > '1.5'
+        THEN
+        SET NEW.Prix_vente = '1.5';
+    END IF;
+END |
+DELIMITER ;
+
+
+DELIMITER |
+CREATE TRIGGER prix_produits
+BEFORE UPDATE
+ON Produits
+FOR EACH ROW
+BEGIN
+    IF NEW.Prix_vente > '1.5'
+        THEN
+        SET NEW.Prix_vente = 1.5;
+    END IF;
+END |
+DELIMITER ;
+
+
+DROP TRIGGER prix_produits;
+DROP TRIGGER prix1_produits;
+DROP TRIGGER before_produits;
+DROP TRIGGER after_categories;
+
+
+DELIMITER |
+CREATE PROCEDURE Utilisateurs_PRO (IN id_utilisateur INT)
+BEGIN
+	SELECT Utilisateurs.* ,Produits.Libelle
+	FROM Utilisateurs
+	JOIN Produit_Utilisateur
+	ON Utilisateurs.ID = ID_utilisateur
+	JOIN Produits
+	ON Produits.ID = ID_produit
+	WHERE id_utilisateur = Utilisateurs.ID; 
+	END |
+DELIMITER ;
+
+
+DELIMITER |
+CREATE PROCEDURE Produits_PRO()
+BEGIN
+	SELECT Produits.* ,Categories.Libelle
+	FROM Produits
+	JOIN Categorie_Produit
+	ON Produits.ID = ID_produit
+	JOIN Categories
+	ON Categories.ID = ID_categorie;
+	END |
+DELIMITER ;

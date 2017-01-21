@@ -1,0 +1,163 @@
+DROP DATABASE IF EXISTS TGS_halli_a ;
+
+CREATE DATABASE IF NOT EXISTS TGS_halli_a DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
+
+USE TGS_halli_a;
+CREATE TABLE IF NOT EXISTS Role
+(
+        ID SMALLINT(10) PRIMARY KEY AUTO_INCREMENT,
+        Libelle VARCHAR(50) UNIQUE,
+        Description TEXT,
+        Date_creation DATETIME,
+        Date_modification DATETIME
+);
+
+CREATE TABLE IF NOT EXISTS Utilisateurs
+(
+	ID INT PRIMARY KEY AUTO_INCREMENT,
+	Utilisateur VARCHAR(50) UNIQUE,
+	Email VARCHAR(50) UNIQUE,
+	Mot_de_pass VARCHAR(255),
+	Nom VARCHAR(50),
+	Prenom VARCHAR(50),
+	Date_de_naissance DATE,
+	Ville VARCHAR(50),
+	Adresse VARCHAR(100),
+	Code_postal VARCHAR(5),
+	Pays VARCHAR(50),
+	Sexe VARCHAR(10),
+	Role SMALLINT(10) DEFAULT '2',
+	Date_creation DATETIME,
+	Date_modification DATETIME,
+	Etat VARCHAR(50) DEFAULT 'Disconnected',
+	CONSTRAINT fk_utilisateur_role
+        	   FOREIGN KEY (Role)
+                   REFERENCES Role(ID)
+		   ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS Produits
+(
+	ID INT PRIMARY KEY AUTO_INCREMENT,
+	Libelle VARCHAR(255),
+	Description TEXT,
+	Notation TINYINT(1),
+	Date_de_sortie DATE,
+	Image VARCHAR(50),
+	Prix_achat DOUBLE,
+	Prix_vente DOUBLE,
+	Nombres_produit SMALLINT,
+	Nombres_produit_vendu SMALLINT,
+	Date_creation DATETIME,
+	Date_modification DATETIME
+);
+
+CREATE TABLE IF NOT EXISTS Categories
+(
+	ID INT PRIMARY KEY AUTO_INCREMENT,
+	Libelle VARCHAR(255) UNIQUE,
+	Description TEXT,
+	Date_creation DATETIME,
+	Date_modification DATETIME,
+	Logo VARCHAR(50)
+);
+
+CREATE TABLE IF NOT EXISTS Categorie_Produit
+(
+	ID_categorie INT,
+	ID_produit INT,
+	CONSTRAINT fk_ID_produit
+	 	     FOREIGN KEY (ID_produit)
+         	     REFERENCES Produits(ID)
+		     ON DELETE SET NULL,
+	CONSTRAINT fk_ID_categorie          
+          	     FOREIGN KEY (ID_categorie)         
+	  	     REFERENCES Categories(ID)
+		     ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS Produit_Utilisateur
+(
+	ID_produit INT,
+	ID_utilisateur INT,
+	Quantite INT UNSIGNED NULL DEFAULT '1',
+	CONSTRAINT fk_ID_produit_Utilisateur
+	 	     FOREIGN KEY (ID_produit)
+         	     REFERENCES Produits(ID)
+		     ON DELETE SET NULL,
+	CONSTRAINT fk_ID_utilisateur          
+          	     FOREIGN KEY (ID_utilisateur)         
+	  	     REFERENCES Utilisateurs(ID)
+		     ON DELETE SET NULL
+);
+
+INSERT INTO `Role` (`ID`, `Libelle`, `Description`, `Date_creation`, `Date_modification`) VALUES
+(1, 'Admin', 'Cet utilisateur a tout les droit sur la modification et l''edition des produits', '2016-10-31 00:00:00', '2016-10-31 00:00:00'),
+(2, 'Client', 'Cet utilisateur a le droit d''achat', '2016-10-31 00:00:00', '2016-10-31 00:00:00');
+
+
+INSERT INTO `Utilisateurs` (`ID`, `Utilisateur`, `Mot_de_pass`, `Nom`, `Prenom`, `Date_de_naissance`, `Ville`, `Adresse`, `Code_postal`, `Pays`, `Sexe`, `Role`, `Date_creation`, `Date_modification`, `Email`, `Etat`) VALUES
+(13, 'test1', 'ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff', 'tests', 'sssss', '1996-12-12', 'test23', 'test23', 'test2', 'test23', 'femme', 2, '2016-11-15 12:36:59', '2016-11-17 17:07:16', 'test123@test.test', 'Disconnected'),
+(14, 'test11', 'ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff', 'tests', 'sssss', '1996-12-12', 'test2', 'test2', 'test2', 'test2', 'homme', 2, '2016-11-15 12:37:11', '2016-11-17 13:06:08', 'test12@test.test', 'Disconnected'),
+(15, 'assalas', 'ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff', 'tests', 'sssss', '1996-12-12', 'test2', 'test2', 'test2', 'test2', 'homme', 2, '2016-11-17 09:45:26', '2016-11-17 13:06:08', 'test12@test.test', 'Disconnected'),
+(16, 'Tata_Youmer', 'ee26b0dd4af7e749aa1a8ee3c10ae9923f618980772e473f8819a5d4940e0db27ac185f8a0e1d5f84f88bc887fd67b143732c304cc5fa9ad8e6f57f50028a8ff', 'tests', 'sssss', '1996-12-12', 'test2', 'test2', 'test2', 'test2', 'homme', 2, '2016-11-17 09:48:00', '2016-11-17 13:06:08', 'test12@test.test', 'Disconnected'),
+(18, 'admin', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec', 'admin', 'admin', '1996-12-12', 'admin city', 'admin adress', '75000', 'admin country', 'homme', 1, '2016-11-17 10:51:33', '2016-11-17 14:46:07', 'admin2@gmail.com', 'Connected'),
+(19, 'youmer', '27dc2f0740ed0f7e1b0b2f2e02ca4c1bb000afb1c8add1baf8adf2dc0ad89397cfebcd89bb2940da0266a9cde49c2f5f4183b75f406cbd20b9775791d9c47409', 'tests', 'sssss', '1996-12-12', 'test2', 'test2', 'test2', 'test2', 'homme', 1, '2016-11-17 10:53:17', '2016-11-18 15:48:06', 'test12@test.test', 'Connected'),
+(20, 'Very_Bad_JoK', '2c1961906c496e694b8fa7afebc9f4c21697671b72cc412062c5f4d974d98a3eff314f862677313369981d89a09a16d18c9d8fc82687f1e4774340daa269bdb3', 'PRUVOST', 'Joffrey', '1998-06-02', 'Croix en ternois', '16 route nationale', '62130', 'France', 'homme', 2, '2016-11-17 16:46:53', '2016-11-17 16:46:53', 'pruvos_j@etna-alternance.net', 'Disconnected'),
+(21, 'new_user', 'd9e6762dd1c8eaf6d61b3c6192fc408d4d6d5f1176d0c29169bc24e71c3f274ad27fcd5811b313d681f7e55ec02d73d499c95455b6b5bb503acf574fba8ffe85', 'new', 'new', '2012-12-12', 'new', 'new', '75000', 'new', 'homme', 2, '2016-11-18 10:56:17', '2016-11-18 10:56:17', 'user@emailtest.test', 'Disconnected'),
+(22, 'ttest', '125d6d03b32c84d492747f79cf0bf6e179d287f341384eb5d6d3197525ad6be8e6df0116032935698f99a09e265073d1d6c32c274591bf1d0a20ad67cba921bc', 'test', 'test', '2012-12-12', 'test', 'test', '45000', 'test', 'homme', 2, '2016-11-18 11:30:18', '2016-11-18 11:30:18', 'test@test.comqq', 'Disconnected');
+
+
+INSERT INTO `Categories` (`ID`, `Libelle`, `Description`, `Date_creation`, `Date_modification`, `Logo`) VALUES
+(1, 'Play Station 4', 'Ceci est la Play Station 4', '2016-11-14 11:25:48', '2016-11-14 11:25:48', 'images/PlayStation4_logo.jpg'),
+(2, 'XBOX ONE', 'Ceci est la Xbox ONE', '2016-11-14 11:26:24', '2016-11-14 11:26:24', 'images/xbox_one_logo.jpg'),
+(3, 'Play Station 3', 'Ceci est la Play Station 3', '2016-11-18 16:22:06', '2016-11-18 16:22:06', 'images/PS3.jpg'),
+(4, 'Play Station 2', 'Ceci est la Play Station 2', '2016-11-18 16:22:06', '2016-11-18 16:22:06', 'images/PS2.jpg'),
+(5, 'Play Station portable', 'Ceci est la Play Station Portable', '2016-11-18 16:22:06', '2016-11-18 16:22:06', 'images/PSP.jpg'),
+(6, 'XBOX 360', 'Ceci est la XBOX 360', '2016-11-18 16:22:06', '2016-11-18 16:22:06', 'images/Xbox360.jpg'),
+(7, 'PC', 'Ceci est l''ordinateur', '2016-11-18 16:22:06', '2016-11-18 16:22:06', 'images/PCjeux.jpg'),
+(8, 'Nintendo DS', 'Ceci est la Nintendo DS', '2016-11-18 16:22:06', '2016-11-18 16:22:06', 'images/Nintendods.jpg'),
+(9, 'Nintendo 3DS', 'Ceci est la Nintendo 3DS', '2016-11-18 16:22:06', '2016-11-18 16:22:06', 'images/Nintendo3ds.jpg'),
+(10, 'Nintendo Wii', 'Ceci est la Nintendo Wii', '2016-11-18 16:22:06', '2016-11-18 16:22:06', 'images/Wii_logo.jpg'),
+(11, 'Nintendo Wii u', 'Ceci est la Nintendo Wii U', '2016-11-18 16:22:06', '2016-11-18 16:22:06', 'images/Wii_u.jpg');
+
+
+INSERT INTO `Produits` (`ID`, `Libelle`, `Description`, `Notation`, `Date_de_sortie`, `Image`, `Prix_achat`, `Prix_vente`, `Nombres_produit`, `Nombres_produit_vendu`, `Date_creation`, `Date_modification`) VALUES
+(7, 'Mafia_III', 'Lincoln Clay, le personnage principal, est de retour à New Bordeaux de la guerre du Viêt Nam. À son retour, il découvre que sa "famille", son groupe de gangsters, a été massacré par des mafieux. Lincoln cherchera à se venger.Les questions raciales et le débat sur la guerre du Vietnam sont largement soulevés dans l''histoire qui est imprégnée de la culture de la Nouvelle-Orléans. A cette période qui correspond à la fin des années 60, Martin Luther King vient d''etre assassiné tandis qu''en parallèle les protestations anti-guerre se font de plus en plus pressantes2.', 5, '2016-10-07', 'images/Mafia.jpg', 18, 22, 12, 2, '2016-11-10 00:00:00', '2016-11-10 00:00:00'),
+(8, 'Watch Dogs 2', 'AprÃ¨s Chicago, San Francisco devient la prochaine ville Ã  installer le systÃ¨me de surveillance ctOS (acronyme de City (CT) Operating System), qui connecte tout le monde avec la ville. Le jeu introduit un nouveau protagoniste, Marcus Holloway, qui est un jeune, brillant hacker venu de Oakland. Pendant son enfance, il a Ã©tÃ© accusÃ© Ã  tort d''un crime qu''il n''a pas commis par la nouvelle version amÃ©liorÃ©e du systÃ¨me ctOS, ctOS 2.0, qui a fait le lien entre ses informations personnelles et le crime. RÃ©alisant que le systÃ¨me porte prÃ©judice aux citoyens innocents de San Francisco, il dÃ©cide de travailler avec le groupe d''hacktivistes DedSec pour prendre le contrÃ´le sur le systÃ¨me ctOS et arrÃªter son crÃ©ateur, Blume. required required', 5, '2016-11-15', 'images/Watch_Dogs_2.jpg', 51, 54, 14, 10, '2016-11-09 00:00:00', '2016-11-18 17:12:19'),
+(10, 'Battlefield', 'The Crew est un jeu vidÃ©o de course arcade dÃ©veloppÃ© par Ivory Tower et Ubisoft Reflections et Ã©ditÃ© par Ubisoft. Le jeu a Ã©tÃ© dÃ©voilÃ© lors de l''E3 2013 et est sorti le 2 dÃ©cembre 2014 sur PlayStation 4, Xbox 360, Xbox One et PC.', 0, '2016-11-14', 'images/Battlefield.jpg', 50, 60, 15, 5, '2016-11-14 14:07:58', '2016-11-18 16:51:21'),
+(11, 'Call_of_duty', 'Ceci est un jeu', 4, '2016-11-14', 'images/Callofduty.jpg', 120, 50, 50, 10, '2016-11-14 14:09:25', '2016-11-14 14:09:25'),
+(12, 'FIFA', 'Ceci est un jeu', 3, '2016-11-14', 'images/fifa7.jpg', 120, 50, 10, 5, '2016-11-14 14:12:07', '2016-11-17 09:57:22'),
+(13, 'FIFA_NEW', 'The Crew est un jeu vidÃ©o de course arcade dÃ©veloppÃ© par Ivory Tower et Ubisoft Reflections et Ã©ditÃ© par Ubisoft. Le jeu a Ã©tÃ© dÃ©voilÃ© lors de l''E3 2013 et est sorti le 2 dÃ©cembre 2014 sur PlayStation 4, Xbox 360, Xbox One et PC.', 5, '2016-11-14', 'images/fifa4.jpg', 50, 60, 12, 5, '2016-11-14 14:12:07', '2016-11-18 16:52:01'),
+(19, 'Dishonored 2', 'Ceci est un jeu', NULL, '2016-11-11', 'images/maxresdefault.jpg', 60, 70, 13, 12, '2016-11-18 16:46:33', '2016-11-18 16:46:33'),
+(20, 'Overwatch', 'Ceci est un jeu', NULL, '0000-00-00', 'images/Overwatch.jpg', 60, 80, 13, 1, '2016-11-18 16:46:33', '2016-11-18 16:46:33'),
+(21, 'Les Sims 4', 'Ceci est un jeu', 3, '2014-08-04', 'images/LesSims4.jpg', 25, 30, 6, 2, '2016-11-18 16:46:33', '2016-11-18 16:46:33'),
+(22, 'The Crew', 'Ceci est un jeu', 5, '2014-08-01', 'images/TheCrew.jpg', 40, 60, 12, 3, '2016-11-18 16:46:33', '2016-11-18 16:46:33');
+
+INSERT INTO `Categorie_Produit` (`ID_categorie`, `ID_produit`) VALUES
+(1, 7),
+(1, 8),
+(11, 10),
+(2, 11),
+(3, 13),
+(5, 12),
+(7, 21),
+(6, 22),
+(10, 20),
+(8, 19);
+
+INSERT INTO `Produit_Utilisateur` (`ID_produit`, `ID_utilisateur`, `Quantite`) VALUES
+(NULL, NULL, 2),
+(12, NULL, 6),
+(10, NULL, 1),
+(13, 15, 2),
+(12, 19, 5),
+(12, 20, 1),
+(NULL, 19, 1),
+(11, 19, 5),
+(8, 19, 5),
+(19, 18, 1),
+(22, 19, 3),
+(19, 19, 1),
+(7, 19, 1),
+(13, 19, 3);
